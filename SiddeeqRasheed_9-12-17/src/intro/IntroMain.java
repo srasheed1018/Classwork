@@ -1,5 +1,5 @@
 package intro;// this is a package declaration
-//tes
+//test
 //this is a class header (class declaration)
 public class IntroMain {
 
