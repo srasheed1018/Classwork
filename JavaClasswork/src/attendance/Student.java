@@ -69,6 +69,7 @@ public class Student implements Attendee {
 		else
 			temp = temp+"ABESNT/n";
 		return temp;
+		//test
 	}
 
 }
