@@ -39,7 +39,34 @@ public class Student implements Attendee {
 	}
 
 	public String getReportString() {
-		return null;
+		String temp = "";
+		for (int i=0; i<20; i++)
+		{
+			if (lastName.substring(i, i+1) == null)
+			{
+				temp = temp+" ";
+			}
+			else
+			{
+				temp = temp+lastName.substring(i, i+1);
+			}
+		}
+		for (int i=0; i<20; i++)
+		{
+			if (firstName.substring(i, i+1) == null)
+			{
+				temp = temp+" ";
+			}
+			else
+			{
+				temp = temp+firstName.substring(i, i+1);
+			}
+		}
+		if (presentStatus)
+			temp = temp+"PRESNT/n";
+		else
+			temp = temp+"ABESNT/n";
+		return temp;
 	}
 
 }
