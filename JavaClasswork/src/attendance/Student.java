@@ -40,30 +40,32 @@ public class Student implements Attendee {
 
 	public String getReportString() {
 		String temp = "";
-		for (int i=0; i<20; i++)
+		for (int i = 0; i < lastName.length(); i++)
 		{
-			if (lastName.substring(i, i+1) == null)
+			if (temp.length()>=20)
 			{
-				temp = temp+" ";
+				break;
 			}
-			else
-			{
-				temp = temp+lastName.substring(i, i+1);
-			}
+			temp = temp+lastName.substring(i,i+1);
 		}
-		for (int i=0; i<20; i++)
+		while (temp.length()<20)
 		{
-			if (firstName.substring(i, i+1) == null)
+			temp = temp+" ";
+		}
+		for (int i = 0; i < firstName.length(); i++)
+		{
+			if (temp.length()>=40)
 			{
-				temp = temp+" ";
+				break;
 			}
-			else
-			{
-				temp = temp+firstName.substring(i, i+1);
-			}
+			temp = temp+firstName.substring(i,i+1);
+		}
+		while (temp.length()<40)
+		{
+			temp = temp+" ";
 		}
 		if (presentStatus)
-			temp = temp+"PRESNT/n";
+			temp = temp+"PRESENT/n";
 		else
 			temp = temp+"ABESNT/n";
 		return temp;
