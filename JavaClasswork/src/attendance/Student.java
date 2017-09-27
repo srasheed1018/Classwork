@@ -3,12 +3,18 @@ package attendance;
 public class Student implements Attendee {
 
 	private boolean presentStatus;
-	private String first;
-	private String last;
+	private String firstName;
+	private String lastName;
+	
+	public Student(String firstName, String lastName)
+	{
+		this.firstName = firstName;
+		this.lastName = lastName;
+		presentStatus = false;
+	}
 	
 	public boolean isPresent() {
-		// TODO Auto-generated method stub
-		return false;
+		return presentStatus;
 	}
 
 	public void setPresent(boolean present) {
@@ -17,30 +23,22 @@ public class Student implements Attendee {
 	}
 
 	public String getFirstName() {
-		return this.first;
+		return firstName;
 	}
 
-	@Override
 	public String getLastName() {
-		// TODO Auto-generated method stub
-		return null;
+		return lastName;
 	}
 
-	@Override
 	public boolean mathces(String first, String last) {
-		// TODO Auto-generated method stub
-		return false;
+		return first.toLowerCase().equals(firstName.toLowerCase()) && last.toLowerCase().equals(lastName.toLowerCase());
 	}
 
-	@Override
 	public boolean matches(String last) {
-		// TODO Auto-generated method stub
-		return false;
+		return last.toLowerCase().equals(lastName.toLowerCase());
 	}
 
-	@Override
 	public String getReportString() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
