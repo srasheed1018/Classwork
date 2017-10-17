@@ -9,12 +9,14 @@ public class ArraysMain {
 	
 	public ArraysMain() {
 		intRay = new int [100];
+		int[] test = {1,2,3,4,5,4};
 		//populate(intRay);
 		//checkOccurences(intRay,3,18);
 		//Arrays is a Utility class included in Java for formatting output
-		populate1ToN(intRay);
-		shuffle(intRay);
-		System.out.println(Arrays.toString(intRay));
+		//populate1ToN(intRay);
+		//shuffle(intRay);
+		//System.out.println(Arrays.toString(intRay));
+		System.out.println(longestConsecutiveSequence(test));
 	}
 
 	private void shuffle(int[] arr) {
@@ -32,7 +34,97 @@ public class ArraysMain {
 		arr[j] = temp1;
 		
 	}
-
+	
+	public int[] reverseOrder(int[] arr) 
+	{
+		int[] result = new int[arr.length];
+		int count = 0;
+		for (int i = arr.length-1; i >-1; i--)
+		{
+			result[count] = arr[i];
+			count++;
+		}
+		return result;
+	}
+	
+	public int countLessThan(int[] arr, int n)
+	{
+		int count = 0;
+		for (int value: arr)
+		{
+			if (value < n)
+				count++;
+		}
+		return count;
+	}
+	
+	//remove the element at index 0;
+	//push every other element up by one (1 t o0, 2 to 1, etc.)
+	//put 0 at the end of the arr
+	public void frontToBack(int[] arr)
+	{
+		int stored0 = 0;
+		for (int i = 0; i < arr.length - 1; i++)
+		{
+			if (i==0)
+			{
+				stored0 = arr[i];
+			}
+			else
+			{
+				arr[i] = arr[i+1];
+			}
+			arr[arr.length-1] = stored0;
+		}
+	}
+	
+	
+	//moves the front to back repeatedly, exactly n times
+	public void cycleThrough(int[] arr, int n)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			frontToBack(arr);
+		}
+	}
+	
+	
+	//returns the length of the longest sequence of consecutive integers in arr[]
+	// for example, {1,2,3,7,8,9,10} returns 4
+	public int longestConsecutiveSequence(int[] arr)
+	{
+		int streak = 1;
+		int highest = 1;
+		int temp = 0;
+		for (int i = 0; i < arr.length; i++)
+		{
+			if (i==0)
+			continue;
+			else
+			{
+				if (arr[i]==arr[i-1]-1)
+				{
+					streak++;
+				}
+				else
+				{
+					if (highest<streak)
+					{
+						streak = temp;
+						highest = temp;
+					}
+					streak = 1;
+				}
+			}
+		}
+		return highest;
+	}
+	
+	public int[] longestConsecSeqAndPos(int[] arr)
+	{
+		
+	}
+	
 	private void populate1ToN(int[] arr) {
 		for (int i = 0; i < arr.length; i++)
 		{
