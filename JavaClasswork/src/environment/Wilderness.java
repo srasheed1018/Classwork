@@ -14,7 +14,7 @@ public class Wilderness extends Habitat{
 	}
 	
 	public String toString() {
-		return this.description + "\n" + animalReport();
+		return this.description + "\n";
 	}
 	
 	public void simulate(int rounds) {
