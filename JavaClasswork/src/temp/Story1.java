@@ -58,3 +58,4 @@ public class Story1 extends StoryRoom {
 		}
 	}
 }
+//
