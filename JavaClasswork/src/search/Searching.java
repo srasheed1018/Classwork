@@ -54,19 +54,25 @@ public class Searching {
 	}
 
 
+	//METHOD DOES NOT WORK!! goes in an infinite loop
 	private int binarySearch(int[] searchThis, int target, int start, int end) {
 		//TODO fill in the method body:
-		if (target==searchThis[start] || target==searchThis[end]) {
-			return start;
+		if (start+1==end) {
+			if (target==searchThis[start])
+				return start;
+			else
+				return end;
 		}
 		else
 		{
-			if (target>searchThis[start]) {
+			if (target>searchThis[(start+end)/2]) {
 				return binarySearch(searchThis, target, (start+end)/2, end);
 			}
-			else
+			else if(target< searchThis[(start+end)/2]) {
 				return binarySearch(searchThis, target, start, (start+end)/2);
+			}
 		}
+		return -1;
 	}
 	
 	/**
