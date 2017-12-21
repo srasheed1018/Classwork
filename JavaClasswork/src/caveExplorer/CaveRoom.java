@@ -108,7 +108,7 @@ public class CaveRoom {
 		}
 		//task: convert user into a direction
 		//DO NOT USE AN IF STATEMENT
-		int direction = "wdsa".indexOf(input);
+		int direction = validKeys().indexOf(input);
 		goToRoom(direction);
 	}
 
@@ -138,11 +138,12 @@ public class CaveRoom {
 			//PLEASE PAY ATTENTION TO THE DIFFERENCE:
 			for (int column = 0; column < CaveExplorer.caves[0].length; column++) {
 				//create a "default" cave
-				CaveExplorer.caves[row][column] = new CaveRoom("This cave has coords ("+row+","+column+")");
+				CaveExplorer.caves[row][column] = new CaveRoom("You're currently at  ("+row+","+column+")");
 			}
 		}
 		//3. Replace default rooms with custom rooms
-		//--TO BE DONE LATER
+		
+		CaveExplorer.caves[1][1] = new LightsOutRoom("Wanna play Lights Out? Press 'e' to enter.");
 		
 		//4. Set your starting room:
 		CaveExplorer.currentRoom = CaveExplorer.caves[0][1];
@@ -153,8 +154,12 @@ public class CaveRoom {
 	}
 
 	private boolean isValid(String input) {
-		String validEntries = "wdsa";
+		String validEntries = validKeys();
 		return validEntries.indexOf(input) > -1 && input.length() ==1;
+	}
+
+	protected String validKeys() {
+		return "wdsa";
 	}
 
 	public String getDescription() {

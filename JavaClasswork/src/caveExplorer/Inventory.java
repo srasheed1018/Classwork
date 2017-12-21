@@ -3,9 +3,32 @@ package caveExplorer;
 public class Inventory {
 
 	private String map;
+	private String score;
+	private int winCount = 0;
 	
 	public Inventory() {
 		updateMap();
+		updateScore();
+	}
+	
+
+	public int getWinCount() {
+		return winCount;
+	}
+
+
+
+	public  void setWinCount(int winCount) {
+		this.winCount = winCount;
+	}
+
+
+
+	public void updateScore() {
+		if (winCount==1)
+			score = "You've successfully completed Lights Out "+winCount+" time.";
+		else
+			score = "You've successfully completed Lights Out "+winCount+" times.";
 	}
 
 	public void updateMap() {
